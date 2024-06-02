@@ -1,0 +1,30 @@
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  .dashboard-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    width: 100%;
+
+    .widget {
+      box-sizing: border-box;
+      flex: 1 1 calc(50% - 10px);
+      margin: 5px;
+      padding: 20px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      min-height: 200px;
+    }
+
+    @media (max-width: 768px) {
+      .widget {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
+

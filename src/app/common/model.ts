@@ -1,0 +1,1 @@
+export type TickerPrice = { ticker: string, price: string | null };
