@@ -1,71 +1,55 @@
+
 # Crypto Outlook
 
 ## Description
-The dashboard page shows various widgets showing prices of various Crypto Currencies, with other useful data for trading. User can remove unwanted items from the list to narrow down the items.
-
-### Desktop View
-![Desktop View](screenshots/desktop-view.png)
-
-### Mobile View
-![Mobile View](screenshots/mobile-view.png)
+The dashboard page displays various widgets showing prices of different cryptocurrencies along with other useful trading data. Users can remove unwanted items from the list to focus on specific items.
 
 ## Features
 
 ### Dashboard
-The Dashboard shows 2 columns of various sections, each containing different widgets showing crypto currency informaiton in different and useful way.
-The design is responsive, meaning, using then on mobile view, automatically scales back the webpage turning it into single column look.
+The Dashboard features two columns of sections, each containing widgets that present cryptocurrency information in different, useful ways. The design is responsive, meaning it automatically adjusts to a single-column layout on mobile devices.
 
 ### Live Crypto Prices Widget
-First section in the first row, shows a widget displaying various crypto-currencies, allowing user to remove individual items from the existing list if not wanted.
+The first section in the first row displays a widget with various cryptocurrencies. Users can remove individual items from this list if they are not needed.
 
 ## Project Architecture
-Overall project is created in Angular 15.
-
-### Screenshot
-![Project Architecture](screenshots/project-architecture.png)
+The entire project is built using Angular 15.
 
 ### Dashboard - Angular
-The Dashboard is the main angular component. It contains, 3 rows and 2 columns of flex design, every box could contain single widget/component. 
-The design is responsive so in mobile view, it shows single column. 
+The Dashboard is the main Angular component. It is structured into three rows and two columns using a flex design, with each box containing a single widget or component. The design is responsive, converting to a single column on mobile devices.
 
 ### Datatable Component - React
-One of the components in react-component directory, is datatable. The datatable.react.component.tsx contains a react component displaying crypto prices in table format.
-Also, it allows user to remove the record from the table. The user click is emitted further to the host components passing selected ticker data.
+Within the react-component directory, there is a datatable component (`datatable.react.component.tsx`) that displays crypto prices in a table format. It allows users to remove records from the table, with user actions being passed to the host components along with the selected ticker data.
 
-### Wrapper Component for React component Datatable
-There is a wrapper component (datatable-wrapper.component) for the above react component allowing cleaner interface for other components.
+### Wrapper Component for React Datatable
+There is a wrapper component (`datatable-wrapper.component`) for the above React component, providing a cleaner interface for other components.
 
-Here the dashboard component acts as a host component, embedding above wrapper component passing the data over parameters, and handing user's remove action further.
+The dashboard component acts as the host, embedding the wrapper component, passing data through parameters, and handling user removal actions.
 
-### Crypto data provider service
-In common/services, there is crypto-data-provider service. This service allows components to subscribe on live coinbase API to fetch the live crypto prices.
-
-In our case, the dashboard subscribes to the live data using above service sending predefined sets of tickers.
-
+### Crypto Data Provider Service
+Located in `common/services`, the `crypto-data-provider` service allows components to subscribe to live data from the Coinbase API to fetch live crypto prices. The dashboard subscribes to this service to receive real-time data for a predefined set of tickers.
 
 ## Data Workflow
 
 ### Loading Crypto Prices
 
-1. First, Dashboard loads and establishes a websocket connection using crypto-data-provider service passing list of tickers
-2. Dashboard filters above data, makes a single list with updated ticker prices, and passes to the datatable-wrapper component
-3. datatable-wrapper component passes the same data to react based datatable component
-4. react datatable, shows data in table format
+1. The Dashboard loads and establishes a WebSocket connection using the `crypto-data-provider` service with a list of tickers.
+2. The Dashboard filters the data, creates a single list with updated ticker prices, and passes it to the `datatable-wrapper` component.
+3. The `datatable-wrapper` component forwards the data to the React-based datatable component.
+4. The React datatable displays the data in a table format.
 
 ### Removing Crypto Items
-1. Clicking on remove button in react datatable, emits event passing ticker value, which is handled by the wrapper datatable component
-2. The wrapper component then emits another event which is handled by the host dashboard page
-3. The dashboard page removes item from tickers list,and data list and re-establishes connection using data provider service with new tickers list
+1. Clicking the remove button in the React datatable emits an event with the ticker value, handled by the wrapper component.
+2. The wrapper component emits another event, handled by the host dashboard page.
+3. The dashboard page removes the item from the tickers list and data list, then re-establishes the connection using the data provider service with the updated tickers list.
 
-
-## Installation and Running guide
+## Installation and Running Guide
 
 ### Installation
-1. Go to the directory of the project using command promt
-2. Run npm install
+1. Navigate to the project directory using the command prompt.
+2. Run `npm install`.
 
-### Running the project
-1. Install angular cli globally
-> npm install -g @angular/cli
-2. Run the project using this command
-> ng serve
+### Running the Project
+1. Install the Angular CLI globally `npm install -g @angular/cli`
+   
+2. Run the project using this command `ng serve`
