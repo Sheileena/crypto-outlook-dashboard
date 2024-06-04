@@ -12,7 +12,7 @@ The dashboard page displays various widgets showing prices of different cryptocu
 
 ## Features
 
-### DashboardW
+### Dashboard
 The Dashboard features two columns of sections, each containing widgets that present cryptocurrency information in different, useful ways. The design is responsive, meaning it automatically adjusts to a single-column layout on mobile devices.
 
 ### Live Crypto Prices Widget
