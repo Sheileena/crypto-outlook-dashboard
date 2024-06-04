@@ -4,16 +4,25 @@
 ## Description
 The dashboard page displays various widgets showing prices of different cryptocurrencies along with other useful trading data. Users can remove unwanted items from the list to focus on specific items.
 
+### Screenshot - Desktop View
+![Desktop View](./screenshots/desktop-view.png)
+
+### Screenshot - Mobile View
+![Mobile View](./screenshots/mobile-view.png)
+
 ## Features
 
-### Dashboard
+### DashboardW
 The Dashboard features two columns of sections, each containing widgets that present cryptocurrency information in different, useful ways. The design is responsive, meaning it automatically adjusts to a single-column layout on mobile devices.
 
 ### Live Crypto Prices Widget
 The first section in the first row displays a widget with various cryptocurrencies. Users can remove individual items from this list if they are not needed.
 
-## Project Architecture
+## Project Structure/Architecture
 The entire project is built using Angular 15.
+
+### Directory structure
+![Project Structure](./screenshots/project-structure.png)
 
 ### Dashboard - Angular
 The Dashboard is the main Angular component. It is structured into three rows and two columns using a flex design, with each box containing a single widget or component. The design is responsive, converting to a single column on mobile devices.
@@ -30,6 +39,9 @@ The dashboard component acts as the host, embedding the wrapper component, passi
 Located in `common/services`, the `crypto-data-provider` service allows components to subscribe to live data from the Coinbase API to fetch live crypto prices. The dashboard subscribes to this service to receive real-time data for a predefined set of tickers.
 
 ## Data Workflow
+
+### Diagram
+![Data Workflow](./screenshots/data-workflow.png)
 
 ### Loading Crypto Prices
 
